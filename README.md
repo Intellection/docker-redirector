@@ -1,4 +1,4 @@
-# docker-web-redirect
+# docker-redirector
 
 This docker container listens on port 80 and redirects all web traffic permanently to the given target domain or URL.
 
@@ -36,7 +36,7 @@ Possible redirect targets include:
 To start a container that will redirect to `mydomain.net` using the plain docker command run:
 
 ```console
-$ docker run --rm -d -e REDIRECT_TARGET=mydomain.net -p 80:80 zappi/web-redirect
+$ docker run --rm -d -e REDIRECT_TARGET=mydomain.net -p 80:80 zappi/redirector
 ```
 
 ### docker-compose
@@ -48,7 +48,7 @@ To start a container that will redirect `myolddomain.net` to `mydomain.net`, run
 version: '3'
 services:
   redirect:
-    image: zappi/web-redirect
+    image: zappi/redirector
     ports:
       - 80
     environment:
