@@ -49,7 +49,6 @@ version: '3'
 services:
   redirect:
     image: zappi/web-redirect
-    restart: always
     ports:
       - 80
     environment:
