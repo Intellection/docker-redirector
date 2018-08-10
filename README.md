@@ -44,6 +44,7 @@ $ docker run --rm -d -e REDIRECT_TARGET=mydomain.net -p 80:80 zappi/web-redirect
 To start a container that will redirect `myolddomain.net` to `mydomain.net`, run:
 
 ```yaml
+---
 version: '3'
 services:
   redirect:
