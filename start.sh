@@ -20,7 +20,7 @@ cat <<EOF > /etc/nginx/conf.d/default.conf
 server {
 	listen 80;
 
-	rewrite ^ $REDIRECT_TARGET\$request_uri? permanent;
+  return 301 $REDIRECT_TARGET\$request_uri;
 }
 EOF
 
