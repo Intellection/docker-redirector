@@ -1,27 +1,31 @@
 #!/bin/bash
-if [ -z "$REDIRECT_TARGET" ]; then
-	echo "Redirect target variable not set (REDIRECT_TARGET)"
-	exit 1
-else
-	# Add http if not set
-	if ! [[ $REDIRECT_TARGET =~ ^https?:// ]]; then
-		REDIRECT_TARGET="http://$REDIRECT_TARGET"
-	fi
 
-	# Add trailing slash
-	if [[ ${REDIRECT_TARGET:length-1:1} != "/" ]]; then
-		REDIRECT_TARGET="$REDIRECT_TARGET/"
-	fi
+set -eu
 
-	echo "Redirecting HTTP requests to ${REDIRECT_TARGET}..."
+echo "Validating required environment variables"
+: ${REDIRECT_TARGET:?"You need to set the REDIRECT_TARGET environment variable."}
+
+# Set default redirect code
+REDIRECT_CODE="${REDIRECT_CODE:=301}"
+
+# Add http if not set
+if ! [[ ${REDIRECT_TARGET} =~ ^https?:// ]]; then
+	REDIRECT_TARGET="http://${REDIRECT_TARGET}"
 fi
+
+# Add trailing slash
+if [[ ${REDIRECT_TARGET:(-1)} != "/" ]]; then
+	REDIRECT_TARGET="${REDIRECT_TARGET}/"
+fi
+
+echo "Redirecting to ${REDIRECT_TARGET} with status code ${REDIRECT_CODE}"
 
 cat <<EOF > /etc/nginx/conf.d/default.conf
 server {
 	listen 80;
 
-	rewrite ^/(.*)\$ $REDIRECT_TARGET\$1 permanent;
+  return ${REDIRECT_CODE} ${REDIRECT_TARGET}\$request_uri;
 }
 EOF
 
-nginx -g "daemon off;"
+exec nginx -g "daemon off;"

@@ -1,0 +1,10 @@
+---
+version: '3.7'
+services:
+  redirector:
+    image: redirector
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      REDIRECT_TARGET: "zappi.io"
