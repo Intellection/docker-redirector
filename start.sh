@@ -6,7 +6,9 @@ echo "Validating required environment variables"
 : ${REDIRECT_TARGET:?"You need to set the REDIRECT_TARGET environment variable."}
 
 # Set default redirect code
-REDIRECT_CODE="${REDIRECT_CODE:=301}"
+# TODO
+# Change redirect code back to 301 once domain move to zappi.io is complete
+REDIRECT_CODE="${REDIRECT_CODE:=302}"
 
 # Add http if not set
 if ! [[ ${REDIRECT_TARGET} =~ ^https?:// ]]; then
