@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+* Enable ability to ignore request URIs to support absolute redirection.
+* Upgrade to Nginx 1.17.
+
 ## 1.1.0
 
 * Enable configuration of redirect status code via `REDIRECT_CODE` environment variable.

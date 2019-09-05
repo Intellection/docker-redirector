@@ -7,4 +7,6 @@ services:
     ports:
       - "3000:80"
     environment:
-      REDIRECT_TARGET: "zappi.io"
+      REDIRECT_CODE: "302"
+      REDIRECT_TARGET: "https://www.zappi.io"
+      IGNORE_REQUEST_URI: "true"
