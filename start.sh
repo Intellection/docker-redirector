@@ -17,11 +17,6 @@ if ! [[ ${REDIRECT_TARGET} =~ ^https?:// ]]; then
 	REDIRECT_TARGET="http://${REDIRECT_TARGET}"
 fi
 
-# Add trailing slash
-if [[ ${REDIRECT_TARGET:(-1)} != "/" ]]; then
-	REDIRECT_TARGET="${REDIRECT_TARGET}/"
-fi
-
 echo "Redirecting to ${REDIRECT_TARGET} with status code ${REDIRECT_CODE}"
 
 if [[ ${IGNORE_REQUEST_URI} = "true" ]]; then

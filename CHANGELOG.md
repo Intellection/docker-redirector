@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+* Avoid adding trailing slash.
+
 ## 1.2.0
 
 * Enable ability to ignore request URIs to support absolute redirection.
