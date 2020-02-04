@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+Run as user `nobody` and group `nogroup` instead of `root`.
+
 ## 1.2.1
 
 * Avoid adding trailing slash.
