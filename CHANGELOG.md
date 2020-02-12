@@ -1,8 +1,12 @@
 # Changelog
 
+## 1.4.0
+
+* Change group  to `nobody` instead of `nogroup`.
+
 ## 1.3.0
 
-Run as user `nobody` and group `nogroup` instead of `root`.
+* Run as user `nobody` and group `nogroup` instead of `root`.
 
 ## 1.2.1
 
