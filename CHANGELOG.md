@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0
+
+* Set `STOPSIGNAL` to `SIGQUIT`.
+* Remove unnecessary `EXPOSE`.
+* Change `user:group` to `nginx:nginx`.
+* Fix permission issue.
+
 ## 1.4.0
 
 * Change group  to `nobody` instead of `nogroup`.

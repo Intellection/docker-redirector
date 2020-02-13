@@ -6,7 +6,10 @@ RUN apk add --update bash \
 	&& rm -rf /var/cache/apk/* \
 	&& chmod +x /usr/local/bin/start.sh
 
-USER nobody:nobody
+# Fix permission issue
+RUN chown -R nginx:nginx /var/cache/nginx && \
+    chmod -R g+w /var/cache/nginx
 
-EXPOSE 80
+USER nginx:nginx
+STOPSIGNAL SIGQUIT
 CMD ["start.sh"]
