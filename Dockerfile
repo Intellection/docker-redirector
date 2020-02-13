@@ -8,5 +8,4 @@ RUN apk add --update bash \
 
 USER nginx:nginx
 
-EXPOSE 80
 CMD ["start.sh"]
