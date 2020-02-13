@@ -7,5 +7,5 @@ RUN apk add --update bash \
 	&& chmod +x /usr/local/bin/start.sh
 
 USER nginx:nginx
-
+STOPSIGNAL SIGQUIT
 CMD ["start.sh"]
