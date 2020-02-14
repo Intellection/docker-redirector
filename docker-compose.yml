@@ -5,7 +5,7 @@ services:
     image: redirector
     build: .
     ports:
-      - "3000:80"
+      - "8080:8080"
     environment:
       REDIRECT_CODE: "302"
       REDIRECT_TARGET: "https://www.zappi.io"
