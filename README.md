@@ -1,6 +1,6 @@
 # Docker Redirector
 
-Listens on port `80` and redirects all web traffic to a given target.
+Listens on port `8080` and redirects all web traffic to a given target.
 
 ## Features
 
@@ -33,7 +33,7 @@ By default redirects are permantent. To change the default status code you can s
 To start a container that will redirect to `example.com` using the plain docker command run:
 
 ```console
-$ docker run --rm -d -e REDIRECT_TARGET=example.com -p 80:80 zappi/redirector
+$ docker run --rm -d -e REDIRECT_TARGET=example.com -p 8080:8080 zappi/redirector
 ```
 
 ### Docker Compose
@@ -47,7 +47,7 @@ services:
   redirect:
     image: zappi/redirector
     ports:
-      - 80
+      - "8080:8080"
     environment:
       REDIRECT_TARGET: "example.com"
       REDIRECT_CODE: "302"

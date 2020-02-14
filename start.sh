@@ -22,14 +22,14 @@ echo "Redirecting to ${REDIRECT_TARGET} with status code ${REDIRECT_CODE}"
 if [[ ${IGNORE_REQUEST_URI} = "true" ]]; then
   cat <<- EOF > ${NGINX_CONFIG_FILE}
 server {
-  listen 80;
+  listen 8080;
   return ${REDIRECT_CODE} ${REDIRECT_TARGET};
 }
 EOF
 else
   cat <<- EOF > ${NGINX_CONFIG_FILE}
 server {
-  listen 80;
+  listen 8080;
   return ${REDIRECT_CODE} ${REDIRECT_TARGET}\$request_uri;
 }
 EOF
