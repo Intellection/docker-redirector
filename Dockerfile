@@ -1,4 +1,4 @@
-FROM nginx:1.17-alpine
+FROM zappi/nginx:1.17.7-3
 
 COPY start.sh /usr/local/bin/
 
