@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+* Change base image to `zappi/nginx` which enables running as unprivileged user `nginx`.
+* Remove permission fix as these are in the base image.
+* Use port `8080` instead of `80`.
+
 ## 1.5.0
 
 * Set `STOPSIGNAL` to `SIGQUIT`.
