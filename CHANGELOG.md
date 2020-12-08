@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0
+
+* Upgrade nginx to 1.19.5.
+
 ## 2.0.0
 
 * Change base image to `zappi/nginx` which enables running as unprivileged user `nginx`.
